@@ -13,3 +13,11 @@ for idx, t in enumerate(text):
 
 for k, v in alphabet.items():
     print(v, end=" ")
+
+
+
+# text = "baekjoon"
+# alphabet = "abcdefghijklmnopqrstuvwxyz"
+#
+# alphabet_dict = {c: -1 for c in alphabet}
+# print(alphabet_dict)
