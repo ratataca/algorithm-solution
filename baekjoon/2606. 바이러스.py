@@ -30,7 +30,7 @@ def bfs(V):
         bfs_visited[V] = True
 
         for i in range(1, N + 1):
-            if bfs_visited[i] == False and  node_map[V][i] == 1:
+            if bfs_visited[i] == False and node_map[V][i] == 1:
                 q.append(i)
     return cnt
 
