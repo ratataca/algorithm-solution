@@ -6,12 +6,10 @@ for i in range(2, N+1):
     while True:
         if N % i == 0:
             N = N // i
-            result.append(i)
+            print(i)
         else:
             break
 
-for r in result:
-    print(r)
 
 # Sol 2
 # N = int(input())
