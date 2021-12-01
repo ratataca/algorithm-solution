@@ -1,8 +1,5 @@
 from math import sqrt
 
-prime_num = [True] * (2 * 123456 + 1)
-prime_num[0] = prime_num[1] = False
-
 def is_prime_num(n):
     if n == 1:
         return False
@@ -13,6 +10,9 @@ def is_prime_num(n):
     return True
 
 if __name__ == '__main__':
+
+    prime_num = [True] * (2 * 123456 + 1)
+    prime_num[0] = prime_num[1] = False
 
     for pn in range(len(prime_num)):
         if is_prime_num(pn):
