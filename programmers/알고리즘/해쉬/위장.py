@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-
 def solution(clothes):
     answer = 1
     my_clothe = defaultdict(int)

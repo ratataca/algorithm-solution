@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-
 def solution(phone_book):
     hash_map = defaultdict()
 
