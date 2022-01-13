@@ -1,7 +1,4 @@
-# participant : 참여한 선수들의 이름이 담긴 배열
-# completion : 완주한 선수들의 이름이 담긴 배열
 from collections import defaultdict
-
 
 def solution(participant, completion):
     # participant 관련 counter 딕션너리 정의
