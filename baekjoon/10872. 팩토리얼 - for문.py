@@ -1,3 +1,4 @@
+## solution 1
 num = int(input())
 
 pac = 1
