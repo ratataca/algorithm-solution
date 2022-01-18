@@ -1,33 +1,3 @@
-#
-#
-# def solution(i, all, find , num):
-#     if i == len(rep):
-#         return
-#
-#     if find == ")":
-#         num += 2
-#
-#     if find == "]":
-#         num += 3
-#
-#     if rep[i] == "(":
-#         solution(i+1, all, ")", num)
-#
-#     elif rep[i] == "[":
-#         solution(i+1, all, "]", num)
-#
-#
-#
-# num = 0
-# global rep
-# rep = [s for s in input()]
-# print(rep)
-# all = 0
-#
-# solution(0, all, rep[0], num)
-# print(num)
-
-
 import sys
 
 def cal(start):
