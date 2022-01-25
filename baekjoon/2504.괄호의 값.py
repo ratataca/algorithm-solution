@@ -22,5 +22,4 @@ s = list(input().rstrip())[::-1]
 ans = 0
 while s:
     ans += cal(s.pop())
-    print(">>", ans)
 print(ans)
