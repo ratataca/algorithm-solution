@@ -1,47 +1,46 @@
 # BFS 
 # 인접 리스트를 활용.
 from collections import deque
+from collections import defaultdict
 
-def bfs(q, relation, visited):
-    
-    cnt = 0
+def bfs(q, rd, visited, cnt):
     while q:
-        node1, node2, deep = q.popleft()
+        node, depth = q.popleft()
         
-        for n1, n2 in relation:
-            if n1 == node2 and deep < 3:
-                q.append([n1, n2, deep + 1])
+        for n in rd[node]:
+            if visited[n] == False and depth < 2:
+                q.append([n, depth + 1])
+                visited[n] = True
                 cnt += 1
 
-    return cnt - 1
+    return cnt
 
 
-# N = int(input())
-# M = int(input())
-# relation = []
+N = int(input())
+M = int(input())
+relation = []
 
-# for _ in range(M):
-#     relation.append([int(n) for n in input().split()])
+for _ in range(M):
+    relation.append([int(n) for n in input().split()])
 
-relation=[
-    [1, 2],
-    [1, 3],
-    [3, 4],
-    [3, 2],
-    [4, 5]
-]
+cnt = 0
+rd = defaultdict(list)
+for r1, r2 in relation:
+    rd[r1].append(r2)  
+    rd[r2].append(r1)
 
-relation = sorted(relation, key=lambda x : x[0])
+visited = [False] * (len(rd) + 1)
+
 
 # Definition of Queue
-q = deque()
+q = deque([])
+visited[1] = True
+for n in rd[1]:
+    q.append([n, 1])
+    visited[n] = True
+    cnt += 1
 
-for node1, node2 in relation:
-    if node1 == 1:
-        q.append([node1, node2, 1])
-
-if len(q) == 0:
+if not q:
     print(0)
-else:
-    visited = [False] * M
-    print(bfs(q, relation, visited))
+else: 
+    print(bfs(q, rd, visited, cnt))
