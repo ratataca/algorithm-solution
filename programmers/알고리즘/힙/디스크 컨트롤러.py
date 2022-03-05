@@ -2,30 +2,28 @@ import heapq
 
 def solution(jobs):
     minHeap = []
-    time = 0
+    time, cnt = 0, 0
+    start = -1
     result = 0
     
     jobs = sorted(jobs)
-    cnt = 0
+    
     len_jobs = len(jobs)
-    visited = [False] * len_jobs
+    
 
     while cnt < len_jobs:
         # 지금 시간 보다 작은 job를 heapq 넣기
-        for idx, value in enumerate(jobs):
-            arrival_time, run_time = value[0], value[1]
-            if arrival_time <= time and visited[idx] == False:
-                heapq.heappush(minHeap, [run_time, arrival_time])
-                visited[idx] = True
-        
+        for job in jobs:
+            if start < job[0] <= time:
+                heapq.heappush(minHeap, [job[1], job[0]])
 
         # 최신에 대한 1개에 대한 연산진행
         if len(minHeap) > 0:
             # 연산 끝난거 heapq 제거
-            run_time, arrival_time= heapq.heappop(minHeap)
-            waitting_time = time - arrival_time        
-            time += (run_time + waitting_time)
-            result += (run_time + waitting_time)
+            cur = heapq.heappop(minHeap)
+            start = time
+            time += cur[0]  # run_time
+            result += time - cur[1]
             cnt += 1
         else:
             time += 1
