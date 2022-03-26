@@ -1,4 +1,3 @@
-
 N = int(input())
 cnt = 0
 num = 0
@@ -10,4 +9,3 @@ while True:
             break
 
 print(num)
-        
