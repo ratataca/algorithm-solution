@@ -1,13 +1,18 @@
 
 while True:
     num = input()
-    if num == 0:
+    if num == '0':
         break
 
-    if num[0:len(num)/2] == num[len(num)/2:-1:-1]:
-        print('yes', num[0:len(num)/2])
+    if len(num) % 2 == 0:
+        target = int(len(num) / 2)
+        if num[ : target] == num[len(num) : target-1 : -1]:
+            print('yes')
+        else:
+            print("no")
     else:
-        print("no")
-    
-
-    
+        target = int(len(num) / 2)
+        if num[ : target] == num[len(num) : target : -1]:
+            print('yes')
+        else:
+            print("no")
