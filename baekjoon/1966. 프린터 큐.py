@@ -20,7 +20,7 @@ while True:
         idx, value = q.popleft()
         cur_value = max_arr.popleft()
 
-        if len(q) != 0 and value < max(max_arr):
+        if len(q) != 0 and value < max(q, key=lambda x :x[0]):
             q.append([idx, value])
             max_arr.append(cur_value)
         else:
