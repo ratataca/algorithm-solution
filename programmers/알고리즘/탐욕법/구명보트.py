@@ -1,25 +1,32 @@
 def solution(people, limit):
-    lenght = len(people)
-    visited = [0] * lenght
-    answer = 0
+    people.sort()
+    right = len(people) - 1
+    left = 0
     
-    for i in range(lenght):
-        max_value = []
-        if visited[i] == 1:
-            continue
-            
-        visited[i] = 1
-        for j in range(i+1, lenght):
-            standard = limit - people[i]
-            if people[j] <= standard and visited[j] == 0:
-                max_value.append([people[j], j])
-        
-        if len(max_value) > 0:
-            max_value.sort()
-            visited[max_value[-1][1]] = 1
-        answer += 1
+    visited = [0] * len(people)
+    cnt = 0
     
-    return answer
+    while left < right:
+        if people[left] + people[right] <= limit:
+            visited[left] = 1
+            visited[right] = 1
+            left += 1
+            right -= 1
+            cnt += 1
+        else:        
+            if limit - people[left] > limit - people[right]:
+                visited[right] = 1
+                right -= 1
+                cnt += 1
+            else:
+                visited[left] = 1
+                left += 1
+                cnt += 1
+                
+    if 0 in visited:
+        cnt += 1
+    
+    return cnt
 
 
 people = [70, 50, 80, 50]
