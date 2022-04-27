@@ -1,22 +1,18 @@
 def solution(people, limit):
-    length = len(people)
-    visited = [0] * length
+    lenght = len(people)
+    visited = [0] * lenght
     answer = 0
     
-    for i in range(length):
+    for i in range(lenght):
         max_value = []
         if visited[i] == 1:
             continue
             
         visited[i] = 1
-        for j in range(i+1, length):
-            
+        for j in range(i+1, lenght):
             standard = limit - people[i]
-            print(">>", j, standard)
             if people[j] <= standard and visited[j] == 0:
                 max_value.append([people[j], j])
-        
-        print(i, j, max_value)
         
         if len(max_value) > 0:
             max_value.sort()
